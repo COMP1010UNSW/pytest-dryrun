@@ -1,10 +1,13 @@
 [tool.poetry]
-name = "pytest-assessor"
+name = "pytest-dryrun"
 version = "0.1.0"
-description = "A Pytest plugin to facilitate auto-marking using Pytest."
+description = "A Pytest plugin to ignore tests during collection without reporting them in the test summary."
 authors = ["Miguel Guthridge <hdsq@outlook.com.au>"]
 readme = "README.md"
-packages = [{include = "pytest_assessor"}]
+packages = [{include = "pytest_dryrun"}]
+
+[tool.poetry.plugins.pytest11]
+pytest-dryrun = "pytest_dryrun.pytest_dryrun"
 
 [tool.poetry.dependencies]
 python = "^3.9"
