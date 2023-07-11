@@ -1,16 +1,12 @@
-# Pytest Assessor Plugin
+# Pytest Dryrun Plugin
 
-A Pytest plugin to facilitate auto-marking using Pytest.
+A Pytest plugin to ignore tests during collection without reporting them in the
+test summary.
 
-## Provided markers
+## Usage
 
-### Dryrun
-
-When the `--assessor-dryrun` flag is passed to Pytest, only tests marked with
-`dryrun` will be collected and run.
-
-If the `--assessor-no-dryrun` flag is given, only tests not marked with `dryrun`
-will be collected.
+When the `--dryrun` flag is passed to Pytest, only tests marked with `dryrun`
+will be collected and run.
 
 ```py
 @pytest.mark.dryrun
@@ -25,35 +21,6 @@ def test_thing_two():
     assert "thing two" in box
 ```
 
-### Weighting
-
-Weightings can be assigned to individual tests. When a test session completes,
-an overall mark is printed.
-
-```py
-@pytest.mark.weighting(3)
-def test_thing_three():
-    """This test is worth three points"""
-    box = get_box()
-    assert "thing three" not in box
-```
-
-If a test is parametrized, the marks are distributed evenly between each test
-case.
-
-```py
-@pytest.mark.weighting(5)
-@pytest.mark.parametrize(
-    'number',
-    # Generate 10 test cases
-    [i for i in range(3, 13)],
-)
-def test_thing_three(number):
-    """
-    Each test case will be worth 0.5 points, since the 5 total marks are evenly
-    distributed between each test.
-    """
-    box = get_box()
-    num_str = number_to_string(number)
-    assert f"thing {num_str}" not in box
-```
+If the `--no-dryrun` flag is given, only tests not marked with `dryrun` will be
+collected, meaning that in the example above, only `test_thing_two` will be
+run.

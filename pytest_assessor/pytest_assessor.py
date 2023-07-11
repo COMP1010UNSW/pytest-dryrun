@@ -22,13 +22,6 @@ def pytest_addoption(parser: pytest.Parser):
     )
 
 
-def pytest_configure(config: pytest.Config):
-    config.addinivalue_line(
-        'markers',
-        'dryrun: include the given test function in the dryrun test suite',
-    )
-
-
 def pytest_collection_modifyitems(
     session: pytest.Session,
     config: pytest.Config,
@@ -38,15 +31,15 @@ def pytest_collection_modifyitems(
     Filter out tests to implement --dryrun and --no-dryrun
     behaviour.
     """
-    keep_non_dryrun = config.getoption('--dryrun')
-    keep_dryrun = config.getoption('--no-dryrun')
+    remove_non_dryrun = config.getoption('--dryrun')
+    remove_dryrun = config.getoption('--no-dryrun')
     new_items = []
     for item in items:
         if item.get_closest_marker('dryrun') is None:
-            if keep_dryrun:
+            if not remove_non_dryrun:
                 new_items.append(item)
         else:
-            if keep_non_dryrun:
+            if not remove_dryrun:
                 new_items.append(item)
 
     # Overwrite the old items array
