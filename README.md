@@ -9,6 +9,9 @@ A Pytest plugin to facilitate auto-marking using Pytest.
 When the `--assessor-dryrun` flag is passed to Pytest, only tests marked with
 `dryrun` will be collected and run.
 
+If the `--assessor-no-dryrun` flag is given, only tests not marked with `dryrun`
+will be collected.
+
 ```py
 @pytest.mark.dryrun
 def test_thing_one():
