@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "pytest-assessor"
+version = "0.1.0"
+description = "A Pytest plugin to facilitate auto-marking using Pytest."
+authors = ["Miguel Guthridge <hdsq@outlook.com.au>"]
+readme = "README.md"
+packages = [{include = "pytest_assessor"}]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
