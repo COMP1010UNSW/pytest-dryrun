@@ -17,6 +17,7 @@ pytest = "^7.4.0"
 [tool.poetry.group.dev.dependencies]
 mypy = "^1.4.1"
 flake8 = "^6.0.0"
+coverage = "^7.2.7"
 
 [build-system]
 requires = ["poetry-core"]
