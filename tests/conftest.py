@@ -1,1 +1,1 @@
-pytest_plugins = ("pytest_assessor.pytest_assessor",)
+pytest_plugins = ("pytest_dryrun.pytest_dryrun",)

@@ -1,7 +1,8 @@
 """
-# Pytest Assessor Plugin
+# Pytest Dryrun Plugin
 
-Provides Pytest markers to facilitate auto-marking using Pytest.
+A Pytest plugin to ignore tests during collection without reporting them in the
+test summary.
 """
 import pytest
 
@@ -19,6 +20,13 @@ def pytest_addoption(parser: pytest.Parser):
         "--no-dryrun",
         action="store_true",
         help="Only run tests that don't have the dryrun mark",
+    )
+
+
+def pytest_configure(config: pytest.Config):
+    config.addinivalue_line(
+        'markers',
+        'dryrun: include the given test function in the dryrun test suite',
     )
 
 
