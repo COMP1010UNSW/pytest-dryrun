@@ -4,6 +4,7 @@
         "addoption",
         "Dryrun",
         "dryruns",
-        "modifyitems"
+        "modifyitems",
+        "pytester"
     ]
 }

@@ -7,6 +7,15 @@ test summary.
 import pytest
 
 
+def pytest_cmdline_main(config: pytest.Config):
+    """
+    Make --dryrun and --no-dryrun options mutually exclusive
+    """
+    if config.getoption('--dryrun') and config.getoption("--no-dryrun"):
+        print("The --dryrun and --no-dryrun options are mutually exclusive")
+        exit(4)
+
+
 def pytest_addoption(parser: pytest.Parser):
     """
     Add --dryrun and --no-dryrun options
