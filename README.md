@@ -3,6 +3,15 @@
 A Pytest plugin to ignore tests during collection without reporting them in the
 test summary.
 
+## Installation
+
+With Pip
+
+```sh
+$ pip install pytest-dryrun
+Successfully installed pytest-dryrun-0.1.0
+```
+
 ## Usage
 
 When the `--dryrun` flag is passed to Pytest, only tests marked with `dryrun`
