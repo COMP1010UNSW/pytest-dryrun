@@ -24,3 +24,5 @@ def test_thing_two():
 If the `--no-dryrun` flag is given, only tests not marked with `dryrun` will be
 collected, meaning that in the example above, only `test_thing_two` will be
 run.
+
+The `--dryrun` and `--no-dryrun` arguments are mutually-exclusive.

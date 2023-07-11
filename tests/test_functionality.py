@@ -1,3 +1,8 @@
+"""
+# Tests / Test functionality
+
+Tests that the plugin functions as expected
+"""
 from pytest import Pytester
 
 
