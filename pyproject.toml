@@ -5,6 +5,24 @@ description = "A Pytest plugin to ignore tests during collection without reporti
 authors = ["Miguel Guthridge <hdsq@outlook.com.au>"]
 readme = "README.md"
 packages = [{include = "pytest_dryrun"}]
+repository = "https://github.com/COMP1010UNSW/pytest-dryrun"
+
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Intended Audience :: Education",
+    # "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Development Status :: 4 - Beta",
+    "Environment :: Plugins",
+    "Framework :: Pytest",
+    "Topic :: Education :: Testing",
+    "Typing :: Typed",
+]
+include = ["py.typed"]
+
+[tool.poetry.urls]
+"Online Documentation" = "https://github.com/COMP1010UNSW/pytest-dryrun"
+"Bug Tracker" = "https://github.com/COMP1010UNSW/pytest-dryrun/issues"
 
 [tool.poetry.plugins.pytest11]
 pytest-dryrun = "pytest_dryrun.pytest_dryrun"
