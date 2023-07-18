@@ -25,7 +25,7 @@ def test_dryrun_flag_runs_marked(pytester: Pytester):
         import pytest
 
         @pytest.mark.dryrun
-        def test_not_dryrun():
+        def test_dryrun():
             assert True
         """
     )
@@ -41,7 +41,7 @@ def test_no_dryrun_flag_skips_marked(pytester: Pytester):
         import pytest
 
         @pytest.mark.dryrun
-        def test_not_dryrun():
+        def test_dryrun():
             assert False
         """
     )
@@ -78,3 +78,19 @@ def test_dryrun_no_dryrun_mutually_exclusive(pytester: Pytester):
     # Status code 4 -> command line usage error
     # https://docs.pytest.org/en/7.1.x/reference/exit-codes.html
     assert result.ret == 4
+
+
+def test_dryrun_alias(pytester: Pytester):
+    pytester.makepyfile(
+        """
+        from pytest_dryrun import dryrun
+
+        @dryrun
+        def test_dryrun():
+            assert False
+        """
+    )
+
+    result = pytester.runpytest('--no-dryrun')
+    # No tests passed or failed
+    result.assert_outcomes()
