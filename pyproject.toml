@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pytest-dryrun"
-version = "0.1.0"
+version = "1.0.0"
 description = "A Pytest plugin to ignore tests during collection without reporting them in the test summary."
 authors = ["Miguel Guthridge <hdsq@outlook.com.au>"]
 readme = "README.md"
@@ -12,7 +12,7 @@ classifiers = [
     "Intended Audience :: Education",
     # "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
-    "Development Status :: 4 - Beta",
+    "Development Status :: 5 - Production/Stable",
     "Environment :: Plugins",
     "Framework :: Pytest",
     "Topic :: Education :: Testing",
