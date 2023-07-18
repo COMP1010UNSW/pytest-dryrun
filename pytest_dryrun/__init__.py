@@ -8,7 +8,8 @@ __version__ = "1.0.0"
 __all__ = [
     'dryrun',
 ]
-from typing import Callable, ParamSpec, TypeVar
+from typing import Callable, TypeVar
+from typing_extensions import ParamSpec
 
 
 P = ParamSpec('P')
