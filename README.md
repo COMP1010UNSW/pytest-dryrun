@@ -30,6 +30,17 @@ def test_thing_two():
     assert "thing two" in box
 ```
 
+Tests can also be marked with `dryrun` using the library's export:
+
+```py
+from pytest_dryrun import dryrun
+
+@dryrun
+def test_thing_one():
+    box = get_box()
+    assert "thing one" in box
+```
+
 If the `--no-dryrun` flag is given, only tests not marked with `dryrun` will be
 collected, meaning that in the example above, only `test_thing_two` will be
 run.
