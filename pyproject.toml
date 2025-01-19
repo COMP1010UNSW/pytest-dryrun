@@ -1,11 +1,12 @@
-[tool.poetry]
+[project]
 name = "pytest-dryrun"
-version = "1.0.0"
+version = "1.0.1"
 description = "A Pytest plugin to ignore tests during collection without reporting them in the test summary."
-authors = ["Miguel Guthridge <hdsq@outlook.com.au>"]
+authors = [{ name = "Maddy Guthridge", email = "hello@maddyguthridge.com" }]
+license = { text = "MIT" }
 readme = "README.md"
-packages = [{include = "pytest_dryrun"}]
-repository = "https://github.com/COMP1010UNSW/pytest-dryrun"
+requires-python = ">3.9"
+dependencies = ["pytest (>=7.40, <9)"]
 
 classifiers = [
     "Programming Language :: Python :: 3",
@@ -18,18 +19,19 @@ classifiers = [
     "Topic :: Education :: Testing",
     "Typing :: Typed",
 ]
-include = ["py.typed"]
 
-[tool.poetry.urls]
-"Online Documentation" = "https://github.com/COMP1010UNSW/pytest-dryrun"
+[project.urls]
+repository = "https://github.com/COMP1010UNSW/pytest-dryrun"
+documentation = "https://github.com/COMP1010UNSW/pytest-dryrun#readme"
 "Bug Tracker" = "https://github.com/COMP1010UNSW/pytest-dryrun/issues"
 
-[tool.poetry.plugins.pytest11]
+[project.entry-points.pytest11]
 pytest-dryrun = "pytest_dryrun.pytest_dryrun"
 
-[tool.poetry.dependencies]
-python = "^3.9"
-pytest = "^7.4.0"
+[tool.poetry]
+requires-poetry = ">=2.0"
+packages = [{ include = "pytest_dryrun" }]
+include = ["py.typed"]
 
 
 [tool.poetry.group.dev.dependencies]
