@@ -9,7 +9,7 @@ With Pip
 
 ```sh
 $ pip install pytest-dryrun
-Successfully installed pytest-dryrun-0.1.0
+Successfully installed pytest-dryrun-1.0.1
 ```
 
 ## Usage
@@ -30,7 +30,8 @@ def test_thing_two():
     assert "thing two" in box
 ```
 
-Tests can also be marked with `dryrun` using the library's export:
+Tests can also be marked with `dryrun` using the library's export, which is
+helpful for ensuring type-safety.
 
 ```py
 from pytest_dryrun import dryrun
