@@ -33,11 +33,30 @@ requires-poetry = ">=2.0"
 packages = [{ include = "pytest_dryrun" }]
 include = ["py.typed"]
 
-
 [tool.poetry.group.dev.dependencies]
 mypy = "^1.4.1"
 flake8 = "^6.0.0"
 coverage = "^7.2.7"
+flake8-pyproject = "^1.2.3"
+
+[tool.flake8]
+exclude = ['.git', '__pycache__', 'dist', 'site']
+
+[tool.mypy]
+check_untyped_defs = true
+files = ["pytest_dryrun", "tests"]
+
+[tool.coverage.report]
+exclude_also = [
+    'if TYPE_CHECKING:',
+    'return NotImplemented',
+    '@overload',
+    'raise AssertionError',
+    'raise NotImplementedError',
+]
+
+[tool.coverage.run]
+branch = true
 
 [build-system]
 requires = ["poetry-core"]

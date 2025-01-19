@@ -122,6 +122,24 @@ pycodestyle = ">=2.11.0,<2.12.0"
 pyflakes = ">=3.1.0,<3.2.0"
 
 [[package]]
+name = "flake8-pyproject"
+version = "1.2.3"
+description = "Flake8 plug-in loading the configuration from pyproject.toml"
+optional = false
+python-versions = ">= 3.6"
+groups = ["dev"]
+files = [
+    {file = "flake8_pyproject-1.2.3-py3-none-any.whl", hash = "sha256:6249fe53545205af5e76837644dc80b4c10037e73a0e5db87ff562d75fb5bd4a"},
+]
+
+[package.dependencies]
+Flake8 = ">=5"
+TOMLi = {version = "*", markers = "python_version < \"3.11\""}
+
+[package.extras]
+dev = ["pyTest", "pyTest-cov"]
+
+[[package]]
 name = "iniconfig"
 version = "2.0.0"
 description = "brain-dead simple config-ini parsing"
@@ -350,4 +368,4 @@ files = [
 [metadata]
 lock-version = "2.1"
 python-versions = ">3.9"
-content-hash = "aafa234b6a445a59c60c5872fde8f64d845a26392b72e952d7d2d46639f596fe"
+content-hash = "7362f38dbd37c642ea02a03e495c06d50f7825b114ba70d12ace8d17fd727ba5"
