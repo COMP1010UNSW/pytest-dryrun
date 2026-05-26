@@ -4,16 +4,18 @@
 A Pytest plugin to ignore tests during collection without reporting them in the
 test summary.
 """
+
 __version__ = "1.0.0"
 __all__ = [
-    'dryrun',
+    "dryrun",
 ]
-from typing import Callable, TypeVar
+from collections.abc import Callable
+from typing import TypeVar
+
 from typing_extensions import ParamSpec
 
-
-P = ParamSpec('P')
-T = TypeVar('T')
+P = ParamSpec("P")
+T = TypeVar("T")
 
 
 def dryrun(func: Callable[P, T]) -> Callable[P, T]:
@@ -23,6 +25,7 @@ def dryrun(func: Callable[P, T]) -> Callable[P, T]:
     Alias to `pytest.mark.dryrun`
     """
     import pytest
+
     return pytest.mark.dryrun(func)
 
 
